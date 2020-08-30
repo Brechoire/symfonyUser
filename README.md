@@ -10,7 +10,7 @@ symfonyUser est un projet de départ qui propose un système de connexion, inscr
 ## Configuration .env.local (ou .env pour prod)
 
     MAILER_URL=smtp://localhost:1025 // Maildev ou mailcatcher
-    DATABASE_URL=mysql://root@127.0.0.1:3306/bddname // base données
+    DATABASE_URL=mysql://root:password@127.0.0.1:3306/bddname // base de données
 
 ## SendMailService.php
 Vous souhaitez pouvoir envoyer un mail lorsqu'un utilisateur s'inscrit ? Où pour tout autre chose ? 
