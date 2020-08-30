@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <h1>Inscription</h1>
+
+    {{ form_start(registrationForm, {attr: {novalidate: 'novalidate'}}) }}
+
+    <div class="row">
+
+        <div class="col-md-12">
+            {{ form_label(registrationForm.username) }}
+            {{ form_widget(registrationForm.username) }}
+            {% if not registrationForm.username.vars.valid %}
+                {% for error in registrationForm.username.vars.errors %}
+                    <div class="alert alert-danger margin-top-10">{{ error.message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-md-12">
+            {{ form_label(registrationForm.email) }}
+            {{ form_widget(registrationForm.email) }}
+            {% if not registrationForm.email.vars.valid %}
+                {% for error in registrationForm.email.vars.errors %}
+                    <div class="alert alert-danger margin-top-10">{{ error.message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-md-12">
+            {{ form_label(registrationForm.password.first) }}
+            {{ form_widget(registrationForm.password.first) }}
+            {% if not registrationForm.password.first.vars.valid %}
+                {% for error in registrationForm.password.first.vars.errors %}
+                    <div class="alert alert-danger margin-top-10">{{ error.message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-md-12">
+            {{ form_label(registrationForm.password.second) }}
+            {{ form_widget(registrationForm.password.second) }}
+            {% if not registrationForm.password.second.vars.valid %}
+                {% for error in registrationForm.password.second.vars.errors %}
+                    <div class="alert alert-danger margin-top-10">{{ error.message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group form-check">
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                {{ form_label(registrationForm.agreeTerms) }}
+                {% if not registrationForm.agreeTerms.vars.valid %}
+                    {% for error in registrationForm.agreeTerms.vars.errors %}
+                        <div class="alert alert-danger margin-top-10">{{ error.message }}</div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <button class="btn btn-primary">S'inscrire</button>
+        </div>
+
+    </div>
+
+    {{ form_end(registrationForm) }}
+{% endblock %}

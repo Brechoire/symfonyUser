@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil {{ app.user.username }} {% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <h1>My profile {{ app.user.username }}</h1>
+
+        <div class="col-md-12">
+
+            {% if is_granted('ROLE_USER') %}
+                <a href="{{ path('profile_delete', {'id': app.user.id, 'token': csrf_token('profile_delete') }) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete your account ?');">Delete my account</a>
+            {% endif %}
+
+            <a href="{{ path('profile_edit_password', {'id': app.user.id, 'token': csrf_token('profile_edit_password') }) }}" class="btn btn-primary">Edit password</a>
+            <a href="{{ path('profile_edit_profile', {'id': app.user.id, 'token': csrf_token('profile_edit_profile') }) }}" class="btn btn-primary">Edit profile</a>
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

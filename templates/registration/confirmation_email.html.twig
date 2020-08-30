@@ -1,0 +1,13 @@
+<h1>Bonjour ! Veuillez confirmer votre email !</h1>
+
+<p>
+    Bonjour {{ username }},
+
+    Veuillez confirmer votre adresse électronique en cliquant sur le lien suivant : <br><br>
+
+    <a href="{{ url('app_activation', {username: username, token: token}) }}">Go !</a>
+</p>
+
+<p>
+    Cordialement
+</p>
