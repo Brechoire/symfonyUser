@@ -146,7 +146,7 @@ class UserService
 
             $password = $this->passwordEncoder->encodePassword(
                 $user,
-                $user->getPassword()
+                $form->get('password')->getData()
             );
 
             $user->setPassword($password);
